@@ -1,0 +1,12 @@
+<div class="col-md-4"></div>
+<div class="col-md-4">
+    <div class="form">
+        <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" class="avatar"/></div>
+        <form class="login-form" [formGroup]="loginForm">
+          <input type="text" placeholder="email address" formControlName="email"/>
+          <input type="password" placeholder="password" formControlName="password" />
+          <button (click)="checkForAuthentication()" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+          <p class="message">Not registered? <a href="#">Contact us</a></p>
+        </form>
+      </div>
+</div>
