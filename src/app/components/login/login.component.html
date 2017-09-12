@@ -1,12 +1,24 @@
-<div class="col-md-4"></div>
+<div class="col-md-12">
+    <div class="col-md-4"></div>
 <div class="col-md-4">
     <div class="form">
-        <div class="thumbnail"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/hat.svg" class="avatar"/></div>
-        <form class="login-form" [formGroup]="loginForm">
-          <input type="text" placeholder="email address" formControlName="email"/>
-          <input type="password" placeholder="password" formControlName="password" />
-          <button (click)="checkForAuthentication()" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+        <ngx-loading [show]="loading"></ngx-loading>
+        <div class="thumbnail"><img src="assets/img/user.svg" class="avatar img-responsive"/></div>
+        <form class="login-form"  name="form" (ngSubmit)="f.form.valid && checkForAuthentication()" #f="ngForm" novalidate>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="model.username" #username="ngModel" required />
+          </div>
+          <div class="input-group">
+           <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+           <input type="password" class="form-control" name="password" placeholder="password" [(ngModel)]="model.password" #password="ngModel" required />
+           </div>
+          <button (click)="checkForAuthentication()" [disabled]="!f.form.valid" class="btn btn-primary">Login</button>
           <p class="message">Not registered? <a href="#">Contact us</a></p>
         </form>
       </div>
+</div>
+</div>
+<div class="col-md-12">
+    
 </div>

@@ -2,6 +2,9 @@
     background-color:white;
     padding-top:20px;
 }
+.header-container{
+    //box-shadow: 2px 2px 2px 2px #888888;
+}
 .productName{
   font-size:20px;
 }
@@ -14,7 +17,7 @@
     font-family:"Segoe UI",Arial, sans-serif;
 }
 .navbar{
-    background-color:#27ae60;;
+    background-color:#27ae60;
     border:none;
     border-radius:0px;
     max-height:20px;

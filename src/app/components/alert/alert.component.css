@@ -1,0 +1,78 @@
+.alertDiv{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    border-radius:0px;
+    height:5%;
+
+}
+.alertDiv a{
+    display:none;
+}
+.alertDiv .close{
+    color:white;
+    display:inline;
+    top:0;
+    right:0;
+    position:absolute;
+    display:none;
+}
+.alertDiv p{
+    text-align:center;
+    color:white;
+    padding-top:5px;
+    padding-bottom:5px;
+    margin:0;
+    font-family:"Segoe UI",Arial, sans-serif;
+}
+.alertDiv button{
+    display:inline-block;
+    right:0;
+    top:0;
+    position:absolute;
+    height:100%;
+    width:5%;
+    border:none;
+    background-color:rgba(194,57,52,0.95);
+}
+@media only screen and (max-width:786px){
+    .alertDiv{
+        top:110px;
+        z-index:2;
+        left:0;
+        width:100%;
+    }
+    .alertDiv a{
+        display:inline;
+    }
+    .alertDiv .close{
+        display:inline;
+    }
+    .alertDiv button{
+        display:none;
+    }
+    .alertDiv p{
+        padding:0px;
+    }
+    
+    
+}
+
+.custom-danger{
+     background-color:rgba(194,57,52,0.95);
+}
+
+.custom-success{
+     background-color:rgba(39, 174, 96,0.95)
+}
+
+.custom-info{
+     background-color:rgba(153, 179, 255,0.95)
+}
+
+.custom-warning{
+     background-color:rgba(255, 255, 128,0.95)
+}
+
+

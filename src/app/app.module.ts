@@ -7,9 +7,12 @@ import {HeaderModule} from "./components/header/header.module";
 import {HomeModule} from "./components/home/home.module";
 import {LoginModule} from './components/login/login.module';
 import {CoreModule} from './core/core.module';
-import { DashBoardModule } from './components/dashboard/dashboard.module';
-import {AppRoutingModule} from './app-routing.module';
-import {AuthService} from './services/auth.service';
+import {AlertModule} from './components/alert/alert.module';
+import { AuthGuard } from './guards/index'; 
+import { AlertService, AuthenticationService, UserService } from './services/index';
+import { routing } from './app.routing';
+import {AdminModule} from './components/admin/admin.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -22,9 +25,11 @@ import {AuthService} from './services/auth.service';
     HomeModule,
     LoginModule,
     CoreModule,
-    DashBoardModule
+    AlertModule,
+    routing,
+    AdminModule
   ],
-  providers: [AuthService],
+  providers: [AuthGuard,AuthenticationService,AlertService,UserService],
   bootstrap: [AppComponent]
 }) 
 export class AppModule { }

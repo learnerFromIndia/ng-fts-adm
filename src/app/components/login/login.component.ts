@@ -1,31 +1,41 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup,Validators,FormControl} from '@angular/forms';
-import {AuthService} from '../../services/auth.service';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
+import { AlertService, AuthenticationService } from '../../services/index';
 
 @Component({
+  moduleId: module.id,
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService:AuthService,public router:Router) { }
+  model: any = {};
+  loading = false;
+  returnUrl: string;
 
-  loginForm:FormGroup;
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService,
+    private alertService: AlertService) { }
+
   ngOnInit() {
-   this.loginForm = new FormGroup({'email':new FormControl(null,Validators.required),'password':new FormControl(null,Validators.required)});
+    this.authenticationService.logout();
+    this.returnUrl = '/admin';
   }
   
   checkForAuthentication(){
-    console.log('here...');
-     var res =this.authService.checkForAuthentication(this.loginForm.get('email').value,this.loginForm.get('password').value);
-     if(res){
-         //this.router.navigate('',relative);
-     }else{
-          //display error
-     }
+    this.loading = true;
+    this.authenticationService.login(this.model.username, this.model.password)
+        .subscribe(
+            data => {
+                this.loading = false;
+                this.alertService.successAlert('Welcome..'+this.model.username);
+                this.router.navigate([this.returnUrl]);
+            },
+            error => {
+                this.alertService.failureAlert(error);
+                this.loading = false;
+            });
     }
-
-
 }
