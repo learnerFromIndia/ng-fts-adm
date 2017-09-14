@@ -23,6 +23,7 @@
     "@angular/router": "^4.3.6",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.0",
+    "ng2-drag-drop": "^2.7.0",
     "ngx-loading": "^1.0.7",
     "rxjs": "^5.4.3",
     "ts-helpers": "^1.1.1",
