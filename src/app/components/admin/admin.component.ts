@@ -16,6 +16,7 @@ export class AdminComponent implements OnInit {
     constructor(private userService: UserService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.imagePath = '/assets/img/';
+        this.count = Array(this.empList.length).fill(0).map((x,i)=>i);
     }
 
     ngOnInit() {
@@ -30,28 +31,27 @@ export class AdminComponent implements OnInit {
         this.userService.getAll().subscribe(users => { this.users = users; });
     }
 
-    empList1 = [
-        {name: 'Amit', type: 'employee'},
-        {name: 'Ajith', type: 'employee'},
-        {name: 'Bala', type: 'employee'},
-        {name: 'Raghav', type: 'employee'}];
-
-    empList2 = [
-        {name: 'Tom', type: 'employee'},
-        {name: 'Jasmeet', type: 'employee'},
-        {name: 'Cody', type: 'employee'},
-        {name: 'Dmitry', type: 'employee'}];
+    empList = [
+        [{index: 0, name: 'Amit', type: 'employee'},
+        {index: 0, name: 'Ajith', type: 'employee'},
+        {index: 0, name: 'Bala', type: 'employee'},
+        {index: 0, name: 'Raghav', type: 'employee'}],
+        [{index: 1, name: 'Tom', type: 'employee'},
+        {index: 1, name: 'Jasmeet', type: 'employee'},
+        {index: 1, name: 'Dmitry', type: 'employee'}],
+        [{index: 2, name: 'PeeJay', type: 'employee'},
+        {index: 2, name: 'Chandran', type: 'employee'},
+        {index: 2, name: 'Umang', type: 'employee'},
+        {index: 2, name: 'Diwakar', type: 'employee'}]];
 
       dragEnabled = true;
-    
-      onAnyDrop1(e: any) {
-        this.empList2.push(e.dragData);
-        this.removeItem(e.dragData, this.empList1);
-      }
+      count: number[];
 
-      onAnyDrop2(e: any) {
-        this.empList1.push(e.dragData);
-        this.removeItem(e.dragData, this.empList2);
+      onAnyDrop(e: any, i: number) {
+        let tmp = e.dragData;
+        this.removeItem(e.dragData, this.empList[tmp.index]);
+        let emp = {index: i, name: tmp.name, type: 'employee'};
+        this.empList[i].push(emp);
       }
     
       removeItem(item: any, list: Array<any>) {

@@ -2,38 +2,24 @@
     <h1>Hi {{currentUser.username}}!</h1>
     <p><a [routerLink]="['/login']">Logout</a></p>
     <br>
+
     <div class="row">
-      
+        <div *ngFor="let indx of count">
           <div class="col-sm-3">
               <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['employee']"
-              [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop2($event)">
+              [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop($event, indx)">
                   <img id="logo" [src]="imagePath + 'bus.jpg'" class="img-rounded" width="171" height="136"/>
               </div>
               <div class="card-block scroll-list">
                   <div class="list-group">
-                      <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of empList1"
+                      <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of empList[indx]"
                           [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
-                          {{item.name}}
+                         {{item.name}}
                       </li>
                   </div>
               </div>
           </div>
-      
-          <div class="col-sm-3">
-              <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['employee']"
-                  [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop1($event)">
-                  <img id="logo" [src]="imagePath + 'traveller.jpg'" class="img-rounded" width="171" height="136"/>
-              </div>
-              <div class="card-block scroll-list">
-                  <div class="list-group">
-                      <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of empList2"
-                          [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
-                          {{item.name}}
-                      </li>
-                  </div>
-              </div>
-          </div>
-      
-      </div>
+        </div>
+     </div>
       
 </div>
