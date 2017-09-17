@@ -12,9 +12,9 @@
               </div>
               <div class="card-block scroll-list">
                   <div class="list-group">
-                      <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of empList[indx]"
+                      <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let item of users[indx]"
                           [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="dragEnabled">
-                         {{item.name}}
+                         {{item.username}} 
                       </li>
                   </div>
               </div>

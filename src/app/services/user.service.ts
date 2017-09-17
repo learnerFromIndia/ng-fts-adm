@@ -1,14 +1,18 @@
 ﻿import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable }     from 'rxjs/Observable';
 
 import { User } from '../model/index';
 
 @Injectable()
 export class UserService {
+    tmp:string;
     constructor(private http: Http) { }
 
-    getAll() {
-        return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());
+    getAll():Observable<User[][]> {
+        return this.http.get('http://localhost:8080/fts-services/api/users').map((response: Response) => {
+                return response.json();
+        });
     }
 
     getById(id: number) {

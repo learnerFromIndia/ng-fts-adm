@@ -11,12 +11,11 @@ import { UserService } from '../../services/index';
 
 export class AdminComponent implements OnInit {
     currentUser: User;
-    users: User[] = [];
+    users: User[][] = [];
     imagePath: string;
     constructor(private userService: UserService) {
         this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
         this.imagePath = '/assets/img/';
-        this.count = Array(this.empList.length).fill(0).map((x,i)=>i);
     }
 
     ngOnInit() {
@@ -28,30 +27,20 @@ export class AdminComponent implements OnInit {
     }
 
     private loadAllUsers() {
-        this.userService.getAll().subscribe(users => { this.users = users; });
+        this.userService.getAll().subscribe(users => { //alert(users);
+             this.users = users; 
+             this.count = Array(this.users.length).fill(0).map((x,i)=>i);
+        });
     }
-
-    empList = [
-        [{index: 0, name: 'Amit', type: 'employee'},
-        {index: 0, name: 'Ajith', type: 'employee'},
-        {index: 0, name: 'Bala', type: 'employee'},
-        {index: 0, name: 'Raghav', type: 'employee'}],
-        [{index: 1, name: 'Tom', type: 'employee'},
-        {index: 1, name: 'Jasmeet', type: 'employee'},
-        {index: 1, name: 'Dmitry', type: 'employee'}],
-        [{index: 2, name: 'PeeJay', type: 'employee'},
-        {index: 2, name: 'Chandran', type: 'employee'},
-        {index: 2, name: 'Umang', type: 'employee'},
-        {index: 2, name: 'Diwakar', type: 'employee'}]];
 
       dragEnabled = true;
       count: number[];
 
       onAnyDrop(e: any, i: number) {
         let tmp = e.dragData;
-        this.removeItem(e.dragData, this.empList[tmp.index]);
-        let emp = {index: i, name: tmp.name, type: 'employee'};
-        this.empList[i].push(emp);
+        let user = {id: 0, index: i, username: tmp.username, password: '', firstName: '', lastName: '', type: 'employee'};
+        this.users[i].push(user);
+        this.removeItem(e.dragData, this.users[tmp.index]);
       }
     
       removeItem(item: any, list: Array<any>) {
