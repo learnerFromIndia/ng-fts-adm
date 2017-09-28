@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+        <div class="panel-heading" (click)="toggle = !toggle"droppable [dragOverClass]="'drag-target-border'" 
+           [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop()">
+           <div class="card card-outline-primary mb-3">
+            <img src="assets/img/alloc_car.svg" class="img-responsive" width="25" height="25"/>
+            <span>{{cab.driver.vehicleNo}}</span>
+            <span>{{cab.driver.name}}</span>
+          </div>
+       </div>
+        <div [collapse]="toggle" class="panel-body">
+          <div class="col-md-12">
+            <div class="card-block scroll-list">
+                <div class="list-group">
+                    <li class="list-group-item list-group-item-action list-group-item-success" [draggable] *ngFor="let commutter of cab.commutters"
+                          [dragClass]="'active'" (dragstart)="onDragStart(commutter,cab.cabId)" [dragData]="commutter" [dragEnabled]="dragEnabled">
+                         {{commutter.name}}
+                    </li>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div> 

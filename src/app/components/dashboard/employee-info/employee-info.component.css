@@ -1,0 +1,71 @@
+#employeeListDiv::-webkit-scrollbar{
+    width:7px;
+}
+#employeeListDiv::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,0.3);
+}
+#employeeListDiv::-webkit-scrollbar-thumb{
+    background-color:#27ae60;
+    outline: 1px solid slategrey;
+}
+#employeeListDiv:hover{
+    overflow-y:auto;
+}
+#employeeListDiv{
+    max-height:60vh;
+    overflow-y:hidden;
+}
+#bottomPanel{
+    position: absolute;
+    bottom:2%;
+    width:100%;
+    height:8%;
+    box-sizing:border-box;
+}
+.item{
+    margin-top:10px;
+    border-radius:0px;
+}
+
+code{
+    background-color:grey;
+    color:white;
+}
+.addNew{
+    position: relative;
+    left:10%;
+    margin-top:5px;
+}
+.upload{
+    position: relative;
+    left:3%;
+    margin-top:5px;
+}
+.span{
+    position: relative;
+    left:3%;
+}
+.employeeId{
+    float:right;
+    color:#c0c0c0;
+}
+
+
+
+#rightMenu{
+    position:absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    width: 15%;
+    background-color:#f0f4f5;
+    height:100%;
+    box-sizing:border-box;
+}
+#centerArea{
+    position:absolute;
+    left:5%;
+    box-sizing:border-box;
+    height:100%;
+    width:95%;
+}

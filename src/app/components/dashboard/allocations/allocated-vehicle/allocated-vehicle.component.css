@@ -1,0 +1,99 @@
+.drag-border {
+    border: #808080 dashed 2px;
+    
+  }
+  
+  .active{
+    
+  }
+  
+  .drag-handle {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+  
+  .drag-handle:active { 
+    background-color:#808080;
+    border-color:#808080;
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+  
+  /* Droppable */
+  
+  .drag-hint-border {
+    border: #808080 dashed 2px;
+  }
+  
+  .drag-over-border {
+    border: #808080 dashed 2px;
+  }
+  
+  .drag-transit {
+    border: #808080 dashed 2px;
+  }
+  div.scroll-list {
+    overflow: auto;
+    max-height: 70vh;
+  }
+
+  .drag-over {
+    border: #808080 dashed 2px;
+  }
+
+  .drag-hint {
+    border: #808080 dashed 2px;
+  }
+
+  .drag-target-border {
+    border: #808080 dashed 2px;
+  }
+
+  .drag-target-border-green {
+    border: #808080 dashed 2px;
+  }
+
+
+
+.card{
+    border:1px solid #ddd;
+    padding:2px;
+    cursor:pointer;
+}
+.card span{
+    font-size:10px;
+    display:inline;
+}
+.card img{
+    display:inline;
+}
+
+.card:hover{
+    background-color:grey;
+    color:white;
+}
+
+
+.card:hover img{
+    content:url('assets/img/car-front.svg')
+}
+.panel{
+    border:0px;
+    box-shadow:none;
+}
+.panel-heading{
+    padding:0px;
+    background-color:transparent;
+}
+.panel-body{
+    border:1px solid #ddd;
+}
+
+li{
+  background-color: #ddd;
+  color:black;
+  border-left:3px solid #808080;
+}

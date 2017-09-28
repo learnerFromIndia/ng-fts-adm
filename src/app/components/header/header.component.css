@@ -9,7 +9,7 @@
   font-size:20px;
 }
 .productName  span{
-    color:#27ae60;
+    color:grey;
   }
 .productName a{
     text-decoration:none;
@@ -17,7 +17,7 @@
     font-family:"Segoe UI",Arial, sans-serif;
 }
 .navbar{
-    background-color:#27ae60;
+    background-color:grey;
     border:none;
     border-radius:0px;
     max-height:20px;

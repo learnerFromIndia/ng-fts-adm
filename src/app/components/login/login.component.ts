@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
-import { AlertService, AuthenticationService } from '../../services/index';
+import { AlertService} from '../../services/index';
+import * as fromAuth from './store/auth.reducers';
+import * as fromAuthActions from './store/auth.actions';
+import {Store} from '@ngrx/store';
 
 @Component({
   moduleId: module.id,
@@ -16,26 +19,15 @@ export class LoginComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService,
-    private alertService: AlertService) { }
+    private alertService: AlertService ,private store:Store<fromAuth.State>) { }
 
   ngOnInit() {
-    this.authenticationService.logout();
+    this.store.dispatch(new fromAuthActions.logout());
     this.returnUrl = '/admin';
   }
   
   checkForAuthentication(){
     this.loading = true;
-    this.authenticationService.login(this.model.username, this.model.password)
-        .subscribe(
-            data => {
-                this.loading = false;
-                this.alertService.successAlert('Welcome..'+this.model.username);
-                this.router.navigate([this.returnUrl]);
-            },
-            error => {
-                this.alertService.failureAlert(error);
-                this.loading = false;
-            });
-    }
+    this.store.dispatch(new fromAuthActions.tryLogIn({username:this.model.username,password:this.model.password}));
+  }
 }

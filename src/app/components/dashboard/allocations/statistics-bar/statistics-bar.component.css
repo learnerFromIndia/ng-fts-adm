@@ -1,0 +1,86 @@
+.info{
+    display: inline;
+    position: absolute;
+    top:130px;
+    font-size:17px;
+    color:grey;
+    left:5%;
+   
+}
+.info2{
+    left:25%;
+}
+.info3{
+    left:65%;
+}
+.info4{
+    left:85%;
+}
+.circle1{
+    left:5%;
+    background-color:#DD870E;
+    color:white;
+}
+.circle2{
+    left:25%;
+    background-color: #5cb85c;
+    color:white;
+}
+.circle3{
+    left:65%;
+    background-color: rgba(255, 255, 128,0.95);
+    color: black;
+}
+.circle4{
+    left:85%;
+    background-color: #d9534f;
+    color:white;
+    
+}
+.statsDivContainer{
+    position: absolute;
+    top:0;
+    width:95%;
+}
+.statsButtonDiv span{
+font-size:17px;
+color:white;
+line-height:40px;
+}
+.statsButtonDiv{
+    background-color:grey;
+    position:absolute;
+    border-radius:20px;
+    top:0;
+    height:25%;
+    width:10%;
+    left:45%;
+    text-align: center;
+    cursor: pointer;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+    z-index:5;
+}
+.statsDiv{
+    top:0;
+    height:150px;
+    background-color:#ddd;
+    position:relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius:20px;
+    padding-bottom: 10px;
+    box-sizing:border-box;
+}
+
+.circle{
+    height:120px;
+    width:120px;
+    border-radius:50%;
+    display: inline-block;
+    line-height:120px;
+    text-align: center;
+    font-size:50px;
+    position: absolute;
+    margin-left:5px;
+    margin-top: 5px;
+}

@@ -1,0 +1,45 @@
+<div class="displayForm">
+    <div class="displayHeader clearfix"><button class="btn btn-danger" (click)="OnaddFormClose()">Close</button> <button class="btn btn-success" (click)="onSave()" [disabled]="!addNewForm.valid" *ngIf="!(driverListObservable | async).editMode">Save</button><button class="btn btn-warning" (click)="edit()" [disabled]="!addNewForm.valid" *ngIf="(driverListObservable | async).editMode">Edit</button></div>
+    <div class="displayContent">
+            <form [formGroup]="addNewForm">
+                <div class="form-group col-md-6">
+                         <label for="driverName"> <span class="required">*</span> Driver Name:</label>
+                      <input type="text" formControlName="driverName" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                      <label for="vehicle"><span class="required">*</span>Vehicle:</label>
+                      <input type="text"  formControlName="vehicle" class="form-control" >
+                </div>
+                 <div class="form-group col-md-6">
+                        <label for="noOfSeater"><span class="required">*</span>No Of Seater:</label>
+                        <input type="number" formControlName="noOfSeater" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="vehicleNum"><span class="required">*</span>Vehicle Number:</label>
+                        <input type="text" formControlName="vehicleNum" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="kyc"><span class="required">*</span>Kyc Complete:</label>
+                        <label class="radio-inline"><input type="radio"  value="Yes" formControlName="kyc">Yes</label>
+                        <label class="radio-inline"><input type="radio"  value="No" formControlName="kyc">No</label>
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="active"><span class="required">*</span>Active: </label>
+                        <label class="radio-inline"><input type="radio"  value="Yes" formControlName="active">Yes</label>
+                        <label class="radio-inline"><input type="radio" value="No" formControlName="active">No</label>
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="contactNum"><span class="required">*</span>Contact Number:</label>
+                        <input type="text" formControlName="primaryContact" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="emergencyNum">Emergency Number:</label>
+                        <input type="text" formControlName="emergencyContact" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="emergencyNum">Route Preference (Area Name):</label>
+                        <input type="text" formControlName="routePreference" placeholder="Starting and End Point Should be Same" class="form-control" >
+                  </div>
+                </form>
+    </div>
+</div>

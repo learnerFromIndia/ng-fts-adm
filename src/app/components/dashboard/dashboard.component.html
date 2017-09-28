@@ -1,0 +1,16 @@
+<div class="dashboardContainer">
+   <div id="leftMenu">
+       <div class="menu">
+           <img src="/assets/img/list.svg" class="menuIcon img-responsive"/>
+       </div>
+     <ul class="list">
+      <li *ngFor="let option of options" routerLinkActive="activeMenuItem">
+            <a routerLink="{{option.routerPath}}" class="menuItem" popover="{{option.option}}" [popoverDisabled]="false" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="right">
+                 <img src="{{option.iconPath}}" class="img-responsive"/>
+            </a> 
+      </li>
+     </ul>
+   </div>
+   <router-outlet></router-outlet>
+   
+</div>

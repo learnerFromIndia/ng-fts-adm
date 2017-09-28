@@ -9,9 +9,21 @@ import {LoginModule} from './components/login/login.module';
 import {CoreModule} from './core/core.module';
 import {AlertModule} from './components/alert/alert.module';
 import { AuthGuard } from './guards/index'; 
-import { AlertService, AuthenticationService, UserService } from './services/index';
+import { AlertService, UserService } from './services/index';
 import { routing } from './app.routing';
 import {AdminModule} from './components/admin/admin.module';
+import {DashboardModule} from './components/dashboard/dashboard.module';
+import {StoreModule,ActionReducer,ActionReducerMap} from '@ngrx/store';
+import {reducers} from './store/app.reducers';
+import { localStorageSync } from 'ngrx-store-localstorage';
+import {EffectsModule} from '@ngrx/effects';
+import {AuthEffects} from './components/login/store/auth.effects';
+
+export function localStorageSyncReducer(reducer: ActionReducer<any>) {
+  return localStorageSync({keys: ['auth']})(reducer);
+}
+const metaReducers: Array<ActionReducerMap<any, any>> = [localStorageSyncReducer];
+ 
 
 @NgModule({
   declarations: [
@@ -27,9 +39,15 @@ import {AdminModule} from './components/admin/admin.module';
     CoreModule,
     AlertModule,
     routing,
-    AdminModule
+    AdminModule,
+    DashboardModule,
+    StoreModule.forRoot(reducers,{metaReducers}),
+    EffectsModule.forRoot([AuthEffects])
   ],
-  providers: [AuthGuard,AuthenticationService,AlertService,UserService],
+  providers: [AuthGuard,AlertService,UserService],
   bootstrap: [AppComponent]
 }) 
-export class AppModule { }
+export class AppModule { 
+
+
+}

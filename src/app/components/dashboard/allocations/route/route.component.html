@@ -1,0 +1,22 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="dropsView clearfix">
+          <span>Trip Route</span>  
+          <img src="assets/img/down-chevron.svg" class="chevron"  (click)="toggle = !toggle"/>
+          <img src="assets/img/route_map.svg" class="route_map"/>
+            <ul  class="routeBar">
+                <li [liAdjuster]="route.mainPoints.length+1" *ngIf="route.source === 'Office'" popover="Office" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="bottom" >Office(Whitefield)</li>
+                  <li [liAdjuster]="route.mainPoints.length+1" *ngFor="let point of route.mainPoints;let i= index">
+                  {{point}}</li>
+              <li [liAdjuster]="route.mainPoints.length+1" *ngIf="route.destination === 'Office'"  popover="Office" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="bottom" >Office(Whitefield)</li>
+            </ul>
+        </div>
+      </div>
+    <div [collapse]="toggle" class="panel-body">
+      <div class="col-md-12">
+        <div class="col-md-3" *ngFor="let cab of route.cabs">
+          <app-allocated-vehicle [cab]="cab" [routeId]="route.routeId"></app-allocated-vehicle>
+        </div>
+      </div>
+    </div>
+</div> 

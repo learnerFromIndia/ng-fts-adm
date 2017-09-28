@@ -14,8 +14,12 @@
         <div class="collapse navbar-collapse" [ngClass]="{'in':isNavBarCollapsed}">
           <ul class="nav navbar-nav navigationList">
             <li routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a routerLink="/">Home</a></li>
-            <li routerLinkActive="active"><a routerLink="/login">Login</a></li>
+            <li *ngIf="(authState | async).isAuthenticated" routerLinkActive="active"><a routerLink="/dashboard">Dashboard</a></li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li *ngIf="!(authState | async).isAuthenticated" routerLinkActive="active"><a routerLink="/login">Login</a></li>
+              <li *ngIf="(authState | async).isAuthenticated" routerLinkActive="active"><a (click)="logout()">Logout</a></li>
+            </ul>
         </div>
       </div>
     </nav>

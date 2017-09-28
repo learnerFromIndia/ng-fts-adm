@@ -1,0 +1,61 @@
+<div class="displayForm">
+    <div class="displayHeader clearfix"><button class="btn btn-danger" (click)="OnaddFormClose()">Close</button> <button class="btn btn-success" (click)="onSave()" [disabled]="!addNewForm.valid" *ngIf="!(employeeListObservable | async).editMode">Save</button><button class="btn btn-warning" (click)="edit()" [disabled]="!addNewForm.valid" *ngIf="(employeeListObservable | async).editMode">Edit</button></div>
+    <div class="displayContent">
+            <form [formGroup]="addNewForm">
+                <div class="form-group col-md-6">
+                         <label for="name"> <span class="required">*</span>Name:</label>
+                      <input type="text" formControlName="name" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                      <label for="employeeId"><span class="required">*</span>Employee Id:</label>
+                      <input type="text"  formControlName="employeeId" class="form-control" >
+                </div>
+                 <div class="form-group col-md-6">
+                        <label for="bloodGroup"><span class="required">*</span>Blood Group:</label>
+                        <select class="form-control" formControlName="bloodGroup" >
+                                    <option value="opositive">O+ve</option>
+                                    <option value="oNegative">O-ve</option>
+                                    <option value="Apositive">A+ve</option>
+                                    <option value="ANegative">A-ve</option>
+                                    <option value="Bpositive">B+ve</option>
+                                    <option value="BNegative">B-ve</option>
+                                    <option value="ABpositive">AB+ve</option>
+                                    <option value="ABNegative">AB-ve</option>
+                        </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="sex"><span class="required">*</span>Sex :</label>
+                        <select class="form-control" formControlName="sex" >
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                        </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                              <label for="shift"><span class="required">*</span>Shift:</label>
+                              <select class="form-control" formControlName="shift" >
+                                <option value="8:30AM">8:30 AM</option>
+                                <option value="12:30PM">12:30 PM</option>
+                                <option value="4:30PM">4:30 PM</option>
+                                <option value="8:30PM">8:30 PM</option>
+                              </select>
+                        </div>
+                  <div class="form-group col-md-6">
+                        <label for="active"><span class="required">*</span>Active: </label>
+                        <label class="radio-inline"><input type="radio"  value="Yes" formControlName="active">Yes</label>
+                        <label class="radio-inline"><input type="radio" value="No" formControlName="active">No</label>
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="contactNum"><span class="required">*</span>Contact Number:</label>
+                        <input type="text" formControlName="primaryContact" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="emergencyNum">Emergency Number:</label>
+                        <input type="text" formControlName="emergencyContact" class="form-control" >
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="address"><span class="required">*</span>Address :</label>
+                        <textarea class="form-control" type="text" formControlName="address"></textarea>
+                  </div>
+                </form>
+    </div>
+</div>

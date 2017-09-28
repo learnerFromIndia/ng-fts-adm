@@ -67,7 +67,7 @@ border-bottom-right-radius: 3px;
 }
 .form button {
 outline: 0;
-background:#27ae60;
+background:grey;
 width: 100%;
 border: 0;
 padding: 15px;
@@ -86,8 +86,9 @@ color: #b3b3b3;
 font-size: 12px;
 }
 .form .message a {
-color:#27ae60;
+color:grey;
 text-decoration: none;
+font-weight: bold;
 }
 .form .register-form {
 display: none;

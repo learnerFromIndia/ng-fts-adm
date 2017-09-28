@@ -1,0 +1,41 @@
+<div id="centerArea">
+        <br>
+         <div class="col-md-12">
+             <div class="col-md-3" >
+                   <div class="input-group">
+                         <input type="text" class="form-control" placeholder="search for any Employee..."/>
+                         <div class="input-group-btn">
+                           <button class="btn btn-default"><i class="glyphicon glyphicon-chevron-down"></i></button>    
+                         </div>
+                         <div class="input-group-btn">
+                                 <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>    
+                         </div>    
+                   </div>
+                   <div id="employeeListDiv" *ngFor="let employee of (employeeListObservable | async).employeeList; let i = index" >
+                      <a class="list-group-item item clearfix" (click)="onSelect(employee,i)">
+                          <p class="list-group-item-heading"><code>{{employee.primaryContact}}</code> <span class="employeeId">{{employee.employeeId}}</span></p>
+                          <h4>{{employee.name}}</h4>
+                      </a>
+                   </div>
+             </div>
+
+             <!--this part of code is for displaying employee details -->
+           <div class="col-md-8" *ngIf="!((employeeListObservable | async).addMode) && (employeeListObservable | async ).selected ; let selected">
+                 <div class="col-md-6">
+                       <app-display-employee-info [employee]="selected"></app-display-employee-info>
+                 </div>
+           </div>      
+     
+             <!-- this part of code is for adding/editing driver -->
+           <div class="col-md-8"  *ngIf="(employeeListObservable | async ).addMode">
+                  <app-add-new-employee [state]="(employeeListObservable | async).selected" ></app-add-new-employee>      
+           </div>
+            
+           
+         
+       </div>
+         <div id="bottomPanel" class="clearfix">
+             <div style="display:inline"><button class="btn btn-success upload">upload</button> <span class="span">Click<a> this </a>to download the template</span></div>
+             <button class="btn btn-danger addNew" (click)="displayAddForm()">Click to Add New</button>
+        </div>
+     </div>

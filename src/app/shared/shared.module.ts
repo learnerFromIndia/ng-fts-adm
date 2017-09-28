@@ -5,6 +5,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
+import {PopoverModule} from 'ngx-popover';
+import {Collapse} from './collapse.directive';
+import {LiAdjuster} from './LiAdjuster.directive';
+
 
 @NgModule({
   imports:[
@@ -12,12 +16,12 @@ import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
         animationType: ANIMATION_TYPES.threeBounce,
         backdropBackgroundColour: 'transparent', 
         backdropBorderRadius: '4px',
-        primaryColour: '#27ae60', 
-        secondaryColour: '#27ae60', 
-        tertiaryColour: '#27ae60'
+        primaryColour: '#808080', 
+        secondaryColour: '#808080', 
+        tertiaryColour: '#808080'
     })
     ],
-  declarations:[],
-  exports:[CommonModule, FormsModule, ReactiveFormsModule , RouterModule, BrowserAnimationsModule,LoadingModule]
+  declarations:[Collapse,LiAdjuster],
+  exports:[CommonModule,LiAdjuster, FormsModule, Collapse,ReactiveFormsModule , RouterModule, BrowserAnimationsModule,LoadingModule,PopoverModule]
 })
 export class SharedModule{}
