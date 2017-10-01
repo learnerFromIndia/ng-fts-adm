@@ -16,7 +16,7 @@ export class AllocationsEffects{
 
     @Effect()
     routes = this.actions$.
-    ofType(allocActions.LOAD_ROUTES).map((action : allocActions.loadRoutes) => {
+    ofType(allocActions.TRY_LOADING_ROUTES).map((action : allocActions.tryLoadingRoutes) => {
         return action.payload;
     }).switchMap((subId : {subsdryId:number}) =>{
         return this.http.get('http://localhost:8080/fts-services/api/routes/'+ subId.subsdryId);

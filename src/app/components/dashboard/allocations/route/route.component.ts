@@ -19,7 +19,7 @@ export class RouteComponent implements OnInit {
   constructor(public store:Store<fromApp.AppState>) { }
 
   ngOnInit() {
-    this.store.dispatch(new fromAllocActions.loadRoutes(this.route, {subsdryId:1}));
+  
   }
 
 }

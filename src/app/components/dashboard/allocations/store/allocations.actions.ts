@@ -4,10 +4,15 @@ import { Route } from '../../../../model/index';
 export const DROP_COMPLETED = 'DROP_COMPLETED';
 export const TO_BE_REMOVED  = "TO_BE_REMOVED";
 export const LOAD_ROUTES  = "LOAD_ROUTES";
+export const TRY_LOADING_ROUTES  = "TRY_LOADING_ROUTES";
 
+export class tryLoadingRoutes implements Action{
+    readonly type = TRY_LOADING_ROUTES;
+    constructor(public payload:{subsdryId:number}){}
+   }
 export class loadRoutes implements Action{
     readonly type = LOAD_ROUTES;
-    constructor(public routes:Route[], public payload:{subsdryId:number}){}
+    constructor(public routes:Route[]){}
 }
 
 export class updateToBeRemoved implements Action{
@@ -21,7 +26,7 @@ export class dropCompleted implements Action{
 }
 
 
-export type allocationsActionsBundle = loadRoutes | dropCompleted | updateToBeRemoved;
+export type allocationsActionsBundle = loadRoutes | dropCompleted | updateToBeRemoved | tryLoadingRoutes;
 
 
 
