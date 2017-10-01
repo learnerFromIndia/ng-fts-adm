@@ -11,7 +11,6 @@ import * as fromApp from '../../../store/app.reducers';
 })
 export class AllocationsComponent implements OnInit {
  
- 
   allocationObservable:Observable<fromAllocations.State>;
   toggle = false;
   menuState:string = 'out';

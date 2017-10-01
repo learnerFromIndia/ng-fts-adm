@@ -6,9 +6,10 @@
           <img src="assets/img/route_map.svg" class="route_map"/>
             <ul  class="routeBar">
                 <li [liAdjuster]="route.mainPoints.length+1" *ngIf="route.source === 'Office'" popover="Office" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="bottom" >Office(Whitefield)</li>
-                  <li [liAdjuster]="route.mainPoints.length+1" *ngFor="let point of route.mainPoints;let i= index">
-                  {{point}}</li>
-              <li [liAdjuster]="route.mainPoints.length+1" *ngIf="route.destination === 'Office'"  popover="Office" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="bottom" >Office(Whitefield)</li>
+                    <li [liAdjuster]="route.mainPoints.length+1" *ngFor="let point of route.mainPoints;let i= index">
+                        {{point}}
+                    </li>
+                <li [liAdjuster]="route.mainPoints.length+1" *ngIf="route.destination === 'Office'"  popover="Office" [popoverOnHover]="true" [popoverCloseOnMouseOutside]="false"  popoverPlacement="bottom" >Office(Whitefield)</li>
             </ul>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import * as allocActions from './allocations.actions';
 import {Trips} from '../../../../model/index';
-
+import { Route } from '../../../../model/trips.model';
+import { RouteService } from '../../../../services/route.service';
+import {Http} from '@angular/http';
 
 export interface State{
-    trip:Trips;
+    routes:Route[];
     toBeRemoved:{
         cabId:number,
         commutter:{
@@ -13,130 +15,20 @@ export interface State{
 }
 
 const initialState:State= {
-    trip : new Trips(
-            [
-                {
-                  routeId:0,
-                  source:'Office',
-                  destination:'Home',
-                  mainPoints:['Hoodi','Kr Puram','Hebbal','Yeshwantpur','Mahalakshmi Layout'],
-                  cabs:[
-                      {
-                          cabId:0,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                          commutters:[{name:'Ajith' },{name:'Umang'},{name:'Amit'}]
-                      },
-                      {
-                         cabId:1,
-                          driver:{
-                              name:'Kiran',
-                              vehicleNo:'KA 18 KJ 8292'
-                          },
-                         commutters:[{ name:'Raghav'},{name:'Diwakar'},{name:'Chandran'}]
-                      },
-                      {
-                         cabId:2,
-                          driver:{
-                               name:'Lokesh',
-                              vehicleNo:'KA 06 EF 1200'
-                          },
-                         commutters:[{ name:'Vignesh'},{name:'Balaji'},{name:'Naveez'}]
-                      },
-                      {
-                         cabId:3,
-                          driver:{
-                              name:'Sandesh',
-                              vehicleNo:'KA 05 MX 7722'
-                          },
-                         commutters:[{ name:'Prasanna'},{name:'Bala'},{name:'Naveen'}]
-                      },
-                      {
-                         cabId:4,
-                          driver:{
-                              name:'ShivaKumar',
-                              vehicleNo:'KA 18 LK 2832'
-                          },
-                         commutters:[{ name:'Sudipto'},{name:'Sukumar'},{name:'Kiran'}]
-                      },
-                      {
-                         cabId:5,
-                          driver:{
-                              name:'Manjunath',
-                              vehicleNo:'KA 02 HJ 1289'
-                          },
-                         commutters:[{ name:'Naga'},{name:'Ashwin'},{name:'Thapa'}]
-                      }
-                    ]
-                },
-                {
-                      routeId:1,
-                      source:'Office',
-                      destination:'Home',
-                      mainPoints:['Marathalli','HAL','Domlur','Mg Road','Majestic'],
-                      cabs:[
-                      {
-                          cabId:6,
-                           driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                          commutters:[{name:'Ajith' },{name:'Umang'},{name:'Amit'}]
-                      },
-                      {
-                         cabId:7,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                         commutters:[{ name:'Suresh'},{name:'Girish'},{name:'Kiran'}]
-                      },
-                      {
-                         cabId:8,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                         commutters:[{ name:'Suresh'},{name:'Girish'},{name:'Kiran'}]
-                      },
-                      {
-                         cabId:9,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                         commutters:[{ name:'Suresh'},{name:'Girish'},{name:'Kiran'}]
-                      },
-                      {
-                         cabId:10,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                         commutters:[{ name:'Suresh'},{name:'Girish'},{name:'Kiran'}]
-                      },
-                      {
-                         cabId:11,
-                          driver:{
-                              name:'Ravi Kumar',
-                              vehicleNo:'KA 14 ED 4432'
-                          },
-                         commutters:[{ name:'Suresh'},{name:'Girish'},{name:'Kiran'}]
-                      }
-                   ]
-                }
-    ]),
+    routes : undefined,
     toBeRemoved:undefined
 };
 
 export function allocationsReducer(state = initialState,action:allocActions.allocationsActionsBundle){ 
-
-    switch(action.type){
+     switch(action.type){
+    case(allocActions.LOAD_ROUTES):
+        return{
+            ...state,
+            trip:action.routes
+        };
      case(allocActions.DROP_COMPLETED):
-      var trip = state.trip;
-       trip.routes.forEach(function(route){
+      var routes = state.routes;
+      routes.forEach(function(route){
          route.cabs.forEach(function(cab){
             if(state.toBeRemoved.cabId === action.droppingPlaceId){
                return{
@@ -155,7 +47,7 @@ export function allocationsReducer(state = initialState,action:allocActions.allo
 
       return {
            ...state,
-           trip:trip,
+           routes:routes,
            toBeRemoved:undefined
        };
        case(allocActions.TO_BE_REMOVED):
