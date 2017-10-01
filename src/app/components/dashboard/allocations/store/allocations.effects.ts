@@ -22,7 +22,6 @@ export class AllocationsEffects{
         return this.http.get('http://localhost:8080/fts-services/api/routes/'+ subId.subsdryId);
      }).mergeMap((response)=> {
         let calculatedRoutes = response.json();
-        this.router.navigate(['/allocations']); 
         return [
             {
               type:allocActions.LOAD_ROUTES,
