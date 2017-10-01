@@ -12,7 +12,9 @@ export class tryLoadingRoutes implements Action{
    }
 export class loadRoutes implements Action{
     readonly type = LOAD_ROUTES;
-    constructor(public routes:Route[]){}
+    constructor(public routes:Route[]){
+        alert(">>>" + routes);
+    }
 }
 
 export class updateToBeRemoved implements Action{

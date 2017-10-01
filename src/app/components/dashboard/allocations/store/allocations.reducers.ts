@@ -24,7 +24,7 @@ export function allocationsReducer(state = initialState,action:allocActions.allo
     case(allocActions.LOAD_ROUTES):
         return{
             ...state,
-            trip:action.routes
+            routes:action.routes
         };
      case(allocActions.DROP_COMPLETED):
       var routes = state.routes;

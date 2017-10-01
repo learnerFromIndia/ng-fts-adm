@@ -11,13 +11,19 @@ export interface CabDriver{
 export interface Route{
     routeId:number,
     source:string,
-    mainPoints:string[],
+    mainPoints:IntermediatePoint[],
     destination:string,
     cabs:Cab[]
 }
+
+export interface IntermediatePoint{
+    pointId:number,
+    point:string
+}
+
 export interface Cab{
     cabId:number,
-    driver:CabDriver,
+    cabDriver:CabDriver,
     commutters:Commutter[]
 }
 
