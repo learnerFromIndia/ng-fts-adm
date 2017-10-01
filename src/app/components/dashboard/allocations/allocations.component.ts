@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Store} from '@ngrx/store';
 import * as fromAllocations from './store/allocations.reducers';
+import * as fromAllocActions from './store/allocations.actions';
+
 import * as fromApp from '../../../store/app.reducers';
 
 @Component({
@@ -19,6 +21,7 @@ export class AllocationsComponent implements OnInit {
 
   ngOnInit() {
    this.allocationObservable = this.store.select('allocations');
+   this.store.dispatch(new fromAllocActions.tryLoadingRoutes({subsdryId:1}));
   }
   
   
