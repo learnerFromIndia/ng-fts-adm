@@ -19,6 +19,8 @@ import { localStorageSync } from 'ngrx-store-localstorage';
 import {EffectsModule} from '@ngrx/effects';
 import {AuthEffects} from './components/login/store/auth.effects';
 import {AllocationsEffects} from './components/dashboard/allocations/store/allocations.effects';
+import {CabsEffects} from './components/dashboard/cabs-info/store/cabs.effects';
+import {EmployeeEffects} from './components/dashboard/employee-info/store/employees.effects';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>) {
   return localStorageSync({keys: ['auth']})(reducer);
@@ -43,7 +45,7 @@ const metaReducers: Array<ActionReducerMap<any, any>> = [localStorageSyncReducer
     AdminModule,
     DashboardModule,
     StoreModule.forRoot(reducers,{metaReducers}),
-    EffectsModule.forRoot([AuthEffects,AllocationsEffects])
+    EffectsModule.forRoot([AuthEffects,AllocationsEffects,CabsEffects,EmployeeEffects])
   ],
   providers: [AuthGuard,AlertService,UserService],
   bootstrap: [AppComponent]

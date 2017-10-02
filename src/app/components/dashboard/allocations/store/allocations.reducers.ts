@@ -1,8 +1,6 @@
 import * as allocActions from './allocations.actions';
 import {Trips} from '../../../../model/index';
 import { Route } from '../../../../model/trips.model';
-import { RouteService } from '../../../../services/route.service';
-import {Http} from '@angular/http';
 
 export interface State{
     routes:Route[];
