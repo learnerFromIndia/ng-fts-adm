@@ -1,0 +1,100 @@
+<div class="displayForm">
+      <div class="displayHeader clearfix">
+            <button class="btn btn-success" (click)="onSave()" [disabled]="!addNewForm.valid" *ngIf="!(enterpriseListObservable | async).editMode">Save</button>
+            <button class="btn btn-warning" (click)="edit()" [disabled]="!addNewForm.valid" *ngIf="(enterpriseListObservable | async).editMode">Edit</button>
+      </div>
+      <div class="displayContent">
+            <form [formGroup]="addNewForm">
+                  <div class="form-group col-md-12">
+                        <label for="entprFullName"> <span class="required">*</span>Enterprise Name:</label>
+                        <input type="text" formControlName="entprFullName" class="form-control">
+                  </div>
+                  <div class="form-group col-md-12">
+                        <label for="entprFullAddress"><span class="required">*</span>Enterprise Address:</label>
+                        <input type="text" formControlName="entprFullAddress" class="form-control">
+                  </div>
+                  <div class="form-group col-md-12">
+                        <label for="sbsdryFullName"><span class="required">*</span>Subsidiary Name:</label>
+                        <input type="text" formControlName="sbsdryFullName" class="form-control">
+                  </div>
+                  <div class="form-group col-md-12">
+                        <label for="sbsdryFullAddress"><span class="required">*</span>Subsidiary Address:</label>
+                        <input type="text" formControlName="sbsdryFullAddress" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="zipcode"><span class="required">*</span>Zipcode:</label>
+                        <input type="text" formControlName="zipcode" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="emailId"> <span class="required">*</span>Email Id:</label>
+                        <input type="text" formControlName="emailId" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="primaryContact"><span class="required">*</span>Primary Contact:</label>
+                        <input type="text" formControlName="primaryContact" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="prmContactNo"><span class="required">*</span>Primary Contact Number:</label>
+                        <input type="number" formControlName="prmContactNo" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="secondaryContact">Secondary Contact:</label>
+                        <input type="text" formControlName="secondaryContact" class="form-control">
+                  </div>
+
+                  <div class="form-group col-md-6">
+                        <label for="secContactNo">Secondary Contact Number:</label>
+                        <input type="number" formControlName="secContactNo" placeholder="" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="totalNoOfEmployees">Total No Of Employees:</label>
+                        <input type="number" formControlName="totalNoOfEmployees" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="noOfEmpsOptingForTrnsprt">No Of Employees Opting For Transport:</label>
+                        <input type="number" formControlName="noOfEmpsOptingForTrnsprt" class="form-control">
+                  </div>
+                  <div class="form-group col-md-12">
+                        <label for="cabProviderEntity"><span class="required">*</span>Cab Provider Entity:</label>
+                        <input type="text" formControlName="cabProviderEntity" class="form-control">
+                  </div>
+                  <div class="form-group col-md-12">
+                        <label for="cabProviderEntityAddr">Cab Provider Entity Address:</label>
+                        <input type="text" formControlName="cabProviderEntityAddr" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="cabProviderEntityPrimContact">Cab Provider Primary Contact:</label>
+                        <input type="text" formControlName="cabProviderEntityPrimContact" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="cabProviderEntityPrimContactNo">Cab Provider Primary Contact No:</label>
+                        <input type="number" formControlName="cabProviderEntityPrimContactNo" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="cabProviderEntitySecContact">Cab Provider Secondary Contact:</label>
+                        <input type="text" formControlName="cabProviderEntitySecContact" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="cabProviderEntitySecContactNo">Cab Provider Secondary Contact No:</label>
+                        <input type="number" formControlName="cabProviderEntitySecContactNo" placeholder="" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="areCabsAvlblOnDdmand">Active: </label>
+                        <label class="radio-inline"><input type="radio"  value="Yes" formControlName="areCabsAvlblOnDdmand">Yes</label>
+                        <label class="radio-inline"><input type="radio" value="No" formControlName="areCabsAvlblOnDdmand">No</label>
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="cabType"><span class="required">*</span>Cab Type:</label>
+                        <input type="text" formControlName="cabType" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="noOfCabs"><span class="required">*</span>No Of Cabs:</label>
+                        <input type="number" formControlName="noOfCabs" class="form-control">
+                  </div>
+                  <div class="form-group col-md-6">
+                        <label for="shiftTimings"><span class="required">*</span>Shift Timing:</label>
+                        <input type="text" formControlName="shiftTimings" placeholder="" class="form-control">
+                  </div>
+            </form>
+      </div>
+</div>

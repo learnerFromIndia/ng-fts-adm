@@ -30,6 +30,6 @@ export class EmployeeEffects{
         ]
          
      }); 
-    constructor(public actions$:Actions,public http:Http,public store:Store<EmployeeReducers.State>,public employee:Employee){}
+    constructor(public actions$:Actions,public http:Http,public store:Store<EmployeeReducers.State>){}
 
 }

@@ -1,4 +1,15 @@
 <div id="centerArea">
-    <p>Company Page</p>
-</div>
-<div id="rightMenu"></div>
+        <br>
+         <div class="col-md-12">
+             <div class="col-md-3">
+                  
+             </div>
+     
+ 
+             <!-- this part of code is for adding/editing driver -->
+           <div class="col-md-8"  *ngIf="(enterpriseListObservable | async ).addMode">
+              <app-add-new-enterprise [state]="(enterpriseListObservable | async ).selected" ></app-add-new-enterprise>      
+           </div>
+        
+       </div>
+     </div>

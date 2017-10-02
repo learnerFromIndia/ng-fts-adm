@@ -30,6 +30,6 @@ export class CabsEffects{
         ]
          
      }); 
-    constructor(public actions$:Actions,public http:Http,public store:Store<CabReducers.State>,public driver:Driver){}
+    constructor(public actions$:Actions,public http:Http,public store:Store<CabReducers.State>){}
 
 }

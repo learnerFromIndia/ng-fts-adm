@@ -1,5 +1,8 @@
 <div class="displayForm">
-    <div class="displayHeader clearfix"><button class="btn btn-danger" (click)="OnaddFormClose()">Close</button> <button class="btn btn-success" (click)="onSave()" [disabled]="!addNewForm.valid" *ngIf="!(driverListObservable | async).editMode">Save</button><button class="btn btn-warning" (click)="edit()" [disabled]="!addNewForm.valid" *ngIf="(driverListObservable | async).editMode">Edit</button></div>
+    <div class="displayHeader clearfix"><button class="btn btn-danger" (click)="OnaddFormClose()">Close</button> 
+      <button class="btn btn-success" (click)="onSave()" [disabled]="!addNewForm.valid" *ngIf="!(driverListObservable | async).editMode">Save</button>
+      <button class="btn btn-warning" (click)="edit()" [disabled]="!addNewForm.valid" *ngIf="(driverListObservable | async).editMode">Edit</button>
+</div>
     <div class="displayContent">
             <form [formGroup]="addNewForm">
                 <div class="form-group col-md-6">

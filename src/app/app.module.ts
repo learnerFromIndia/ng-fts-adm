@@ -21,6 +21,7 @@ import {AuthEffects} from './components/login/store/auth.effects';
 import {AllocationsEffects} from './components/dashboard/allocations/store/allocations.effects';
 import {CabsEffects} from './components/dashboard/cabs-info/store/cabs.effects';
 import {EmployeeEffects} from './components/dashboard/employee-info/store/employees.effects';
+import {EnterpriseEffects} from './components/dashboard/company-info/store/enterprise.effects';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>) {
   return localStorageSync({keys: ['auth']})(reducer);
@@ -45,7 +46,7 @@ const metaReducers: Array<ActionReducerMap<any, any>> = [localStorageSyncReducer
     AdminModule,
     DashboardModule,
     StoreModule.forRoot(reducers,{metaReducers}),
-    EffectsModule.forRoot([AuthEffects,AllocationsEffects,CabsEffects,EmployeeEffects])
+    EffectsModule.forRoot([AuthEffects,AllocationsEffects,CabsEffects,EmployeeEffects,EnterpriseEffects])
   ],
   providers: [AuthGuard,AlertService,UserService],
   bootstrap: [AppComponent]
