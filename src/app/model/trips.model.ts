@@ -27,8 +27,18 @@ export interface Cab{
     commutters:Commutter[]
 }
 
+export interface CabStats{
+    cabType:string,
+    noOfCabs:number
+}
 
-export class Trips{
-    
-    constructor(public routes:Route[]){}
+export interface Trips{
+    subId:number,
+    shiftTiming:string,
+    cabDetail:CabStats[],
+    totalNoOfCabs:number,
+    noOfEmployeesAllotted:number,
+    noOfEmptySeats:number,
+    noOfPeopleRemaing:number,
+    routes:Route[]
 }

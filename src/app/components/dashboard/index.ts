@@ -13,3 +13,4 @@ export * from './allocations/route/route.component';
 export * from './allocations/allocated-vehicle/allocated-vehicle.component';
 export * from './allocations/statistics-bar/statistics-bar.component';
 export * from './company-info/add-new-enterprise/add-new-enterprise.component';
+export * from './allocations/cab-details/cab-details.component';

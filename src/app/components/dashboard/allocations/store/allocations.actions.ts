@@ -1,4 +1,5 @@
 import {Action} from '@ngrx/store';
+import { Trips } from '../../../../model/index';
 import { Route } from '../../../../model/index';
 
 export const DROP_COMPLETED = 'DROP_COMPLETED';
@@ -12,8 +13,8 @@ export class tryLoadingRoutes implements Action{
    }
 export class loadRoutes implements Action{
     readonly type = LOAD_ROUTES;
-    constructor(public routes:Route[]){
-        alert(">>>" + routes);
+    constructor(public trip:Trips, public routes:Route[]){
+
     }
 }
 

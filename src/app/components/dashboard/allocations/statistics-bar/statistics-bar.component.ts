@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
 import {trigger,transition,animate,style,state} from '@angular/animations';
 
 @Component({
@@ -44,7 +44,7 @@ import {trigger,transition,animate,style,state} from '@angular/animations';
 })
 export class StatisticsBarComponent implements OnInit {
 
-  constructor() { }
+ constructor() { }
 
   ngOnInit() {
   }

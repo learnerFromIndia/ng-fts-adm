@@ -24,10 +24,10 @@ export class LiAdjuster implements OnInit{
     switch(this.noOfItems){
      
       case(2):
-        this.width = '15%';
+        this.width = '25%';
       break;
       case(3):
-      this.width = '15%';
+      this.width = '22%';
       break;
       case(4):
       this.width = '15%';
@@ -42,7 +42,7 @@ export class LiAdjuster implements OnInit{
       this.width = '14%';
       break;
       default:
-      this.width = '11%';
+      this.width = '25%';
     }
  }
 }

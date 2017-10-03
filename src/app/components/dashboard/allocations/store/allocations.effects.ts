@@ -15,17 +15,18 @@ import 'rxjs/add/operator/do';
 export class AllocationsEffects{
 
     @Effect()
-    routes = this.actions$.
+    trip = this.actions$.
     ofType(allocActions.TRY_LOADING_ROUTES).map((action : allocActions.tryLoadingRoutes) => {
         return action.payload;
     }).switchMap((subId : {subsdryId:number}) =>{
         return this.http.get('http://localhost:8080/fts-services/api/routes/'+ subId.subsdryId);
      }).mergeMap((response)=> {
-        let calculatedRoutes = response.json();
+        let trip = response.json();
         return [
             {
               type:allocActions.LOAD_ROUTES,
-              routes:calculatedRoutes
+              trip:trip,
+              routes:trip.routes
             }
         ]
          
