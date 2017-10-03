@@ -1,30 +1,119 @@
 <div id="centerArea">
-                <app-statistics-bar></app-statistics-bar>
-                <div class="routesDiv">
-                    <div class="col-md-12">
-                        <div class="col-md-3"></div>
-                        <div class="col-md-6">
-                                <div class="form-group" style="width:69%;display:inline-block">
-                                        <label for="sel1"></label>
-                                        <select class="form-control" id="sel1">
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                        </select>
+        <app-statistics-bar></app-statistics-bar>
+        <div class="col-md-12">
+                <div class="col-md-3">
+                        <br><br><br>
+                        <a class="list-group-item item clearfix" style="background-color: #808080; color: white;">
+                                <div class="form-group col-md-3">
+                                        Vehicle Type
                                 </div>
-                                <div class="form-group" style="display:inline-block;width:30%;">
-                                        <label for="sel1">Filter list:</label>
-                                        <select class="form-control" id="sel1">
-                                          <option>1</option>
-                                          <option>2</option>
-                                          <option>3</option>
-                                          <option>4</option>
-                                        </select>
+                                <div class="form-group col-md-3">
+                                        Seating Capacity
+                                </div>
+                                <div class="form-group col-md-3">
+                                        Available Cabs
+                                </div>
+                        </a>
+                        <a class="list-group-item item clearfix">
+                                <div class="form-group col-md-3">
+                                        <img src="assets/img/mini.png" class="img-responsive" width="50" height="50" />
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text" placeholder="2">
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text">
+                                </div>
+                        </a>
+                        <a class="list-group-item item clearfix">
+                                <div class="form-group col-md-3">
+                                        <img src="assets/img/sedan.png" class="img-responsive" width="50" height="50" />
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text" placeholder="4">
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text">
+                                </div>
+                        </a>
+                        <a class="list-group-item item clearfix">
+                                <div class="form-group col-md-3">
+                                        <img src="assets/img/suv.png" class="img-responsive" width="50" height="50" />
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text" placeholder="6">
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text">
+                                </div>
+                        </a>
+                        <a class="list-group-item item clearfix">
+                                <div class="form-group col-md-3">
+                                        <img src="assets/img/traveller.png" class="img-responsive" width="50" height="50" />
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text" placeholder="15">
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text">
+                                </div>
+                        </a>
+                        <a class="list-group-item item clearfix">
+                                <div class="form-group col-md-3">
+                                        <img src="assets/img/bus.png" class="img-responsive" width="50" height="50" />
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text" placeholder="20">
+                                </div>
+                                <div class="form-group col-md-3">
+                                        <input type="text">
+                                </div>
+                        </a>
+                        <div style="float: left; margin-top: 10px;">
+                                <div class="displayHeader clearfix"><button class="btn btn-danger">Reset Form</button>
+                                        <button class="btn btn-success">Recalculate Routes</button></div>
+                        </div>
+
+                </div>
+
+
+
+                <div class="col-md-8">
+                        <div class="routesDiv">
+                                <div class="col-md-12 ">
+                                        <div class="col-md-3 "></div>
+                                        <div class="col-md-6 ">
+                                                <div class="form-group " style="width:69%;display:inline-block ">
+                                                        <label for="sel1 "></label>
+                                                        <select class="form-control " id="sel1 ">
+                                                  <option>Morning Shift</option>
+                                                  <option>Afternoon Shift</option>
+                                                  <option>Evening Shift</option>
+                                                  <option>Late Night Shift</option>
+                                                </select>
+                                                </div>
+                                                <div class="form-group " style="display:inline-block;width:30%; ">
+                                                        <label for="sel1 ">Filter list:</label>
+                                                        <select class="form-control " id="sel1 ">
+                                                  <option>5:00 AM</option>
+                                                  <option>6:00 AM</option>
+                                                  <option>7:00 AM</option>
+                                                  <option>8:00 AM</option>
+                                                  <option>9:00 AM</option>
+                                                  <option>10:00 AM</option>
+                                                </select>
+                                                </div>
+                                        </div>
                                 </div>
                         </div>
-                    </div>
-                </div>  
-                <app-route *ngFor="let route of (allocationObservable | async).routes" [route]="route"></app-route>
-            
-            </div>
+                        <app-route *ngFor="let route of (allocationObservable | async).routes " [route]="route "></app-route>
+                </div>
+
+        </div>
+
+</div>

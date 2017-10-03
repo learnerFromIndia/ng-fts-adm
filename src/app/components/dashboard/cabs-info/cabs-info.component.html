@@ -1,48 +1,51 @@
 <div id="centerArea">
-            <br>
-             <div class="col-md-12">
-                 <div class="col-md-3">
-                       <div class="input-group">
-                             <input type="text" class="form-control" placeholder="search any cab/driver details..."/>
-                             <div class="input-group-btn">
-                               <button class="btn btn-default"><i class="glyphicon glyphicon-chevron-down"></i></button>    
-                             </div>
-                             <div class="input-group-btn">
-                                     <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>    
-                             </div>    
-                       </div>
-                       <div id="driverListDiv" *ngFor="let driver of (driverListObservable | async).driverList; let i = index" >
-                          <a class="list-group-item item clearfix" (click)="onSelect(driver,i)">
+      <br>
+      <div class="col-md-12">
+            <div class="col-md-3">
+                  <div class="input-group">
+                        <input type="text" class="form-control" placeholder="search any cab/driver details..." />
+                        <div class="input-group-btn">
+                              <button class="btn btn-default"><i class="glyphicon glyphicon-chevron-down"></i></button>
+                        </div>
+                        <div class="input-group-btn">
+                              <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                  </div>
+                  <div id="driverListDiv" *ngFor="let driver of (driverListObservable | async).driverList; let i = index">
+                        <a class="list-group-item item clearfix" (click)="onSelect(driver,i)">
                               <p class="list-group-item-heading"><code>{{driver.vehicle}}</code> <span class="vehicleNum">{{driver.vehicleNumber}}</span></p>
                               <h4>{{driver.driverName}}</h4>
-                          </a>
-                       </div>
-                 </div>
-         
-                 <!--this part of code is for displaying driver details and trips information-->
-               <div class="col-md-8" *ngIf="!((driverListObservable | async ).addMode) && (driverListObservable | async ).selected ; let selected">
-                     <div class="col-md-6">
-                           <app-display-driver-info [driver]="selected"></app-display-driver-info>
-                     </div>
-                     <!--code for my trips -->
-                     <div class="col-md-6">
-                           <div class="displayForm">
-                                 <div class="displayHeader clearfix" style="text-align:center;color:white"><h4>{{(driverListObservable | async ).selected.driverName}} Todays Trips</h4></div>
-                                       <div class="displayContent" id="tripDiv">
-                                             <app-display-driver-trip *ngFor="let trip of ((driverListObservable | async ).selected.trips);let i=index" [trip]="trip" [index]="i"></app-display-driver-trip>
-                                      </div>
-                           </div>
-                     </div>
-               </div>      
-         
-                 <!-- this part of code is for adding/editing driver -->
-               <div class="col-md-8"  *ngIf="(driverListObservable | async ).addMode">
-                  <app-add-new-driver [state]="(driverListObservable | async ).selected" ></app-add-new-driver>      
-               </div>
-            
-           </div>
-             <div id="bottomPanel" class="clearfix">
-                 <div style="display:inline"><button class="btn btn-success upload">upload</button> <span class="span">Click<a> here </a>to download the template</span></div>
-                 <button class="btn btn-danger addNew" (click)="displayAddForm()">Click to Add New</button>
+                        </a>
+                  </div>
             </div>
-         </div>
+
+            <!--this part of code is for displaying driver details and trips information-->
+            <div class="col-md-8" *ngIf="!((driverListObservable | async ).addMode) && (driverListObservable | async ).selected ; let selected">
+                  <div class="col-md-6">
+                        <app-display-driver-info [driver]="selected"></app-display-driver-info>
+                  </div>
+                  <!--code for my trips -->
+                  <div class="col-md-6">
+                        <div class="displayForm">
+                              <div class="displayHeader clearfix" style="text-align:center;color:white">
+                                    <h4>{{(driverListObservable | async ).selected.driverName}} Todays Trips</h4>
+                              </div>
+                              <div class="displayContent" id="tripDiv">
+                                    <app-display-driver-trip *ngFor="let trip of ((driverListObservable | async ).selected.trips);let i=index" [trip]="trip"
+                                          [index]="i"></app-display-driver-trip>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+
+            <!-- this part of code is for adding/editing driver -->
+            <div class="col-md-8" *ngIf="(driverListObservable | async ).addMode">
+                  <app-add-new-driver [state]="(driverListObservable | async ).selected"></app-add-new-driver>
+            </div>
+
+      </div>
+      <div id="bottomPanel" class="clearfix">
+            <div style="display:inline"><button class="btn btn-success upload">upload</button> <span class="span">Click<a> here </a>to download the template</span></div>
+            <button class="btn btn-danger addNew" (click)="displayAddForm()">Click to Add New</button>
+      </div>
+</div>

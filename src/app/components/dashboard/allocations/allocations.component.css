@@ -8,8 +8,17 @@
     z-index:2;
   }
 
-
-
+  input[type=text] {
+    width: 40px;
+    display: block;
+    margin-top: 10px;
+    background-color: #F6F6F1;
+    border: 2px solid #093912;
+    border-radius: 4px;
+    color: #021C02;
+    text-align: center;
+    
+}
 
 #rightMenu{
     position:absolute;
