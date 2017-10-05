@@ -11,9 +11,9 @@ import {Store} from '@ngrx/store';
   styleUrls: ['./cab-details.component.css']
 })
 export class CabDetailsComponent implements OnInit {
-  
+
   @Input()
-  cabDetail:CabStats[];
+  cabStat : CabStats[];
   
   constructor(public store:Store<fromApp.AppState>) {
       

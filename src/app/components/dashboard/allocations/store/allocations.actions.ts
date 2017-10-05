@@ -13,7 +13,7 @@ export class tryLoadingRoutes implements Action{
    }
 export class loadRoutes implements Action{
     readonly type = LOAD_ROUTES;
-    constructor(public trip:Trips, public routes:Route[]){
+    constructor(public trip:Trips){
 
     }
 }

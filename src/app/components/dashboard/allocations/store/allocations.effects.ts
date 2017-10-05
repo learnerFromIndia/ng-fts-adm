@@ -25,8 +25,7 @@ export class AllocationsEffects{
         return [
             {
               type:allocActions.LOAD_ROUTES,
-              trip:trip,
-              routes:trip.routes
+              trip:trip
             }
         ]
          

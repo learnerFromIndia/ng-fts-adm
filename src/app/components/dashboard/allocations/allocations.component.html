@@ -1,10 +1,11 @@
 <div id="centerArea">
-        <app-statistics-bar></app-statistics-bar>
+        <app-statistics-bar [totalNoOfCabs]="(allocationObservable | async).totalNoOfCabs" [noOfEmployeesAllotted]="(allocationObservable | async).noOfEmployeesAllotted" [noOfEmptySeats]="(allocationObservable | async).noOfEmptySeats" [noOfPeopleRemaing]="(allocationObservable | async).noOfPeopleRemaing"></app-statistics-bar>
         <div class="col-md-12">
                 <div class="col-md-3">
                         <br><br><br>
-                        <cab-details [cabDetail]="cabDetail"></cab-details>
+                        <cab-details [cabStat]="(allocationObservable | async).cabDetail"></cab-details>
                 </div>
+
                 <div class="col-md-8">
                         <div class="routesDiv">
                                 <div class="col-md-12 ">
